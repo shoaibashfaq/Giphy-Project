@@ -26,6 +26,7 @@ const Gify=()=>{
 
     console.log("gifyList"+gifyList)
 
+    //updates each time the searchTerm state updates
     useEffect(()=>{
         async function fetchGify(){
             const gifyObj= await axios.get("https://api.giphy.com/v1/gifs/search",
@@ -44,7 +45,7 @@ const Gify=()=>{
     return(
         <div>
             <Search onValueChange={handleSearchUpdate}></Search>
-            {/* presents the gifyList Provided*/}
+            {/* presents the gifyList Provided as a prop*/}
             <GiftCard gifyList={gifyList}></GiftCard>
         </div>
     )
